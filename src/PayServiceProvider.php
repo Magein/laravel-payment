@@ -3,8 +3,6 @@
 namespace Magein\Payment\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Magein\Common\Commands\MakeModel;
-use Magein\Common\Commands\MakeModelProperty;
 
 /**
  * 参考地址 https://learnku.com/laravel/t/35930

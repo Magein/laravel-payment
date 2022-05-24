@@ -17,7 +17,8 @@
     "php": "^7.4|^8.0",
     "ext-json": "*",
     "laravel/framework": "~8.54",
-    "magein/tools": "dev-master"
+    "magein/tools": "*@dev",
+    "magein/laravel-common": "*@dev"
   },
   "autoload": {
     "psr-4": {

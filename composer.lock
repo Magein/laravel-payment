@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "465e265209307165621e65fe81cc8076",
+    "content-hash": "38a52af05b5d2c05a49486ecba76ca8a",
     "packages": [
         {
             "name": "brick/math",
@@ -1068,6 +1068,55 @@
                 }
             ],
             "time": "2022-04-17T13:12:02+00:00"
+        },
+        {
+            "name": "magein/laravel-common",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Magein/laravel-common.git",
+                "reference": "b879fe926560914ff8905b93c7d2eb4eb2b04d42"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Magein/laravel-common/zipball/b879fe926560914ff8905b93c7d2eb4eb2b04d42",
+                "reference": "b879fe926560914ff8905b93c7d2eb4eb2b04d42",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "laravel/framework": "~8.54",
+                "magein/tools": "dev-master",
+                "php": "^7.4|^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Magein\\Common\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "magein",
+                    "homepage": "https://github.com/magein"
+                }
+            ],
+            "description": "laravel常用的工具类",
+            "homepage": "https://github.com/magein/laravel-tools",
+            "keywords": [
+                "laravel",
+                "tools"
+            ],
+            "support": {
+                "issues": "https://github.com/Magein/laravel-common/issues",
+                "source": "https://github.com/Magein/laravel-common/tree/master"
+            },
+            "time": "2022-05-24T08:01:29+00:00"
         },
         {
             "name": "magein/tools",
@@ -4517,7 +4566,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "magein/tools": 20
+        "magein/tools": 20,
+        "magein/laravel-common": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

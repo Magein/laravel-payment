@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Payment\Lib\Platform;
+namespace Magein\Payment\Lib\Platform;
 
 use Magein\Payment\Lib\Data\PayData;
 use Magein\Payment\Lib\Data\PayNotifyData;

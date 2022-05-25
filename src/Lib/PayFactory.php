@@ -3,13 +3,14 @@
 
 namespace Magein\Payment\Lib;
 
-use App\Payment\Lib\Platform\AliPay;
-use App\Payment\Lib\Platform\WxPay;
+use Magein\Payment\Lib\Platform\AliPay;
+use Magein\Payment\Lib\Platform\WxPay;
 
 class PayFactory
 {
-    public static function platform($platform_id, bool $set_account = false)
+    public static function platform($platform_id = '', bool $set_account = false)
     {
+        $pay_config = config('pay.default');
         if (empty($platform_id)) {
             if (isMicroMessenger()) {
                 $platform = new WxPay();

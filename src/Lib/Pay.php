@@ -3,7 +3,7 @@
 
 namespace Magein\Payment\Lib;
 
-use Magein\Payment\Lib\Data\PayAccountData;
+use Magein\Payment\Lib\Data\PayAccount;
 use Magein\Payment\Lib\Data\PayData;
 use Magein\Payment\Lib\Data\PayNotifyData;
 use Magein\Payment\Models\PayOrder;
@@ -16,9 +16,9 @@ abstract class Pay
     public string $error = '';
 
     /**
-     * @var \Magein\Payment\Lib\Data\PayAccountData
+     * @var \Magein\Payment\Lib\Data\PayAccount
      */
-    public PayAccountData $payAccount;
+    public PayAccount $payAccount;
 
 
     /**
@@ -57,7 +57,7 @@ abstract class Pay
         if ($key) {
             $this->setAccount($key);
         } else {
-            $this->payAccount = new PayAccountData();
+            $this->payAccount = new PayAccount();
         }
     }
 
@@ -131,7 +131,7 @@ abstract class Pay
         }
         $account = $accounts[$key];
 
-        $payAccount = new PayAccountData();
+        $payAccount = new PayAccount();
         $payAccount->setMode($account['mode'] ?? 'dev');
         $payAccount->setAppid($account['appid'] ?? '');
         $payAccount->setMerchantId($account['merchant_id'] ?? '');

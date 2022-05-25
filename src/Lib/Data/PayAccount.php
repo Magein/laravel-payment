@@ -4,7 +4,7 @@
 namespace Magein\Payment\Lib\Data;
 
 
-class PayAccountData
+class PayAccount
 {
     /**
      * 账号所使用的的模式，dev测试账号  pro 生产环境账号

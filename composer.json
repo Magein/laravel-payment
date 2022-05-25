@@ -1,6 +1,6 @@
 {
   "name": "magein/laravel-payment",
-  "description": "laravel常用的工具类",
+  "description": "laravel支付扩展",
   "keywords": [
     "laravel",
     "payment"

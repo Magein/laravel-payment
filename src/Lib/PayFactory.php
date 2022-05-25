@@ -3,6 +3,7 @@
 
 namespace Magein\Payment\Lib;
 
+use App\Payment\Lib\Platform\AliPay;
 use App\Payment\Lib\Platform\WxPay;
 
 class PayFactory
@@ -11,7 +12,9 @@ class PayFactory
     {
         if (empty($platform_id)) {
             if (isMicroMessenger()) {
-
+                $platform = new WxPay();
+            } else {
+                $platform = new AliPay();
             }
         }
     }

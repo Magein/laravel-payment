@@ -1,6 +1,6 @@
 <?php
 
-namespace Magein\Payment\Providers;
+namespace Magein\Payment;
 
 use Illuminate\Support\ServiceProvider;
 

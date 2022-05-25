@@ -10,7 +10,6 @@ use Magein\Payment\Models\PayOrder;
 
 abstract class Pay
 {
-
     /**
      * @var string
      */

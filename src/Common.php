@@ -30,7 +30,6 @@ if (!function_exists('getAmount')) {
         if (false === $position) {
             return floatval($amount);
         }
-
         return floatval(substr($amount, 0, $position + $len + 1));
     }
 }

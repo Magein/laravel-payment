@@ -16,13 +16,13 @@ class PayServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (is_file(__DIR__ . '/../Common.php')) {
-            require_once __DIR__ . '/../Common.php';
+        if (is_file(__DIR__ . '/Common.php')) {
+            require_once __DIR__ . '/Common.php';
         }
 
-        foreach (glob(app_path('Helpers') . '/*.php') as $file) {
-            require_once $file;
-        }
+        $this->publishes([
+            __DIR__ . '/Config.php' => config_path('pay.php'),
+        ]);
     }
 
     /**
@@ -32,12 +32,7 @@ class PayServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // 加载命令
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                MakeModel::class,
-                MakeModelProperty::class
-            ]);
-        }
+        $this->loadMigrationsFrom(__DIR__ . '/Migrations/');
+        $this->loadRoutesFrom(__DIR__ . '/Router.php');
     }
 }

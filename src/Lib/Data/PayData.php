@@ -8,97 +8,80 @@ class  PayData
      * 订单交易编号，传递给第三方平台的，不能为空且唯一
      * @var string
      */
-    private $pay_no = '';
+    private string $pay_no = '';
 
     /**
      * 订单编号，真实的订单编号
      * @var string
      */
-    private $order_no = '';
+    private string $order_no = '';
 
     /**
      * 使用场景
      * @var integer
      */
-    private $scene = 1;
+    private int $scene = 1;
 
     /**
      * 交易金额
-     * @var string
+     * @var float
      */
-    private $total_amount = '';
+    private float $total_amount = 0;
 
     /**
      * 订单标题。
      * @var string
      */
-    private $subject = '';
+    private string $subject = '';
 
     /**
      * 订单附加信息。
      * 如果请求时传递了该参数，将在异步通知、对账单中原样返回，同时会在商户和用户的pc账单详情中作为交易描述展示
      * @var string
      */
-    private $body = '';
-
-    /**
-     * 用户付款中途退出返回商户网站的地址
-     * @var string
-     */
-    private $quit_url = '';
+    private string $body = '';
 
     /**
      * 支付完成跳转的页面
      * @var string
      */
-    private $return_url = '';
-
-    /**
-     * 通知url
-     * @var string
-     */
-    private $notice_url = '';
+    private string $complete_url = '';
 
     /**
      * 交易平台
-     * @var string
+     * @var string|int
      */
-    private $platform = '';
+    private $platform_id = '';
 
     /**
      * 应用ID
      * @var string
      */
-    private $appid = '';
+    private string $appid = '';
 
     /**
      * 商户id
      * @var string
      */
-    private $merchant_id = '';
+    private string $merchant_id = '';
 
     /**
-     * 平台的交易方式，app、H5等
+     * 交易方式 wap、jsapi、app等
      * @var string
      */
-    private $platform_pay_type = '';
-
-    /**
-     * 微信的open_id
-     * @var string
-     */
-    private $open_id = '';
+    private $trade_type = '';
 
     /**
      * 用户id
-     * @var string|integer
+     * @var string|int
      */
     private $user_id = '';
 
     /**
-     * @var array
+     * 用户授权id
+     * @var string|integer
      */
-    private $post_data = [];
+    private string $open_id = '';
 
     /**
      * @return string
@@ -186,63 +169,17 @@ class  PayData
     /**
      * @return string
      */
-    public function getQuitUrl(): string
+    public function getCompleteUrl(): string
     {
-        return $this->quit_url;
+        return $this->complete_url;
     }
 
     /**
-     * @param string|null $quit_url
+     * @param string $complete_url
      */
-    public function setQuitUrl(?string $quit_url): void
+    public function setCompleteUrl(string $complete_url): void
     {
-        $this->quit_url = $quit_url ?: '';
-    }
-
-    /**
-     * @return string
-     */
-    public function getReturnUrl(): string
-    {
-        return $this->return_url;
-    }
-
-    /**
-     * @param string|null $return_url
-     */
-    public function setReturnUrl(?string $return_url): void
-    {
-        $this->return_url = $return_url ?: '';
-    }
-
-    /**
-     * @return string
-     */
-    public function getNoticeUrl(): string
-    {
-        return $this->notice_url;
-    }
-
-    /**
-     * @param string|null $notice_url
-     */
-    public function setNoticeUrl(?string $notice_url): void
-    {
-        $this->notice_url = $notice_url;
-    }
-
-    public function setUrl(?string $notice_url, $pay_no = '')
-    {
-        if ($notice_url) {
-            // 通知地址，保存的是原始参数
-            $this->notice_url = $notice_url;
-            $concat = function ($pay_type) use ($pay_no) {
-                return config('app.url') . "api/pay/redirect/$pay_type/$pay_no";
-            };
-            // 同步跳转是跳转到项目的地址，然后分发
-            $this->return_url = $concat('success');
-            $this->quit_url = $concat('quit');
-        }
+        $this->complete_url = $complete_url ?: '';
     }
 
     /**
@@ -264,17 +201,17 @@ class  PayData
     /**
      * @return string
      */
-    public function getPlatform(): string
+    public function getPlatformId(): string
     {
-        return $this->platform;
+        return $this->platform_id;
     }
 
     /**
-     * @param string $platform
+     * @param string|int $platform_id
      */
-    public function setPlatform(string $platform): void
+    public function setPlatformId($platform_id): void
     {
-        $this->platform = $platform;
+        $this->platform_id = (string)$platform_id;
     }
 
     /**
@@ -312,17 +249,17 @@ class  PayData
     /**
      * @return string
      */
-    public function getPlatformPayType(): string
+    public function getTradeType(): string
     {
-        return $this->platform_pay_type;
+        return $this->trade_type;
     }
 
     /**
-     * @param string $platform_pay_type
+     * @param string $trade_type
      */
-    public function setPlatformPayType(string $platform_pay_type): void
+    public function setTradeType(string $trade_type): void
     {
-        $this->platform_pay_type = $platform_pay_type;
+        $this->trade_type = $trade_type;
     }
 
     /**
@@ -355,21 +292,5 @@ class  PayData
     public function setUserId($user_id): void
     {
         $this->user_id = intval($user_id);
-    }
-
-    /**
-     * @return array
-     */
-    public function getPostData(): array
-    {
-        return $this->post_data ?: [];
-    }
-
-    /**
-     * @param array $data
-     */
-    public function setPostData(array $data): void
-    {
-        $this->post_data = $data;
     }
 }

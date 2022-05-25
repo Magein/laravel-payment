@@ -13,6 +13,7 @@ return [
     ],
 
     'ali' => [
+        'name' => '支付宝',
         'platform' => \App\Payment\Lib\Platform\AliPay::class,
         'use' => [
             '12234',
@@ -21,14 +22,14 @@ return [
         'accounts' => [
             '12234' => [
                 'mode' => PAY_MODE_PRODUCT,
-                'appid' => '',
+                'appid' => '12234',
                 'encrypt_key' => '',
                 'merchant_private_key' => '',
                 'platform_public_key' => '',
             ],
             '45223' => [
                 'mode' => PAY_MODE_PRODUCT,
-                'appid' => '',
+                'appid' => '12234',
                 'encrypt_key' => '',
                 'merchant_private_key' => '',
                 'platform_public_key' => '',
@@ -44,6 +45,7 @@ return [
         ],
     ],
     'wx' => [
+        'name' => '微信',
         'platform' => \App\Payment\Lib\Platform\WxPay::class,
         'use' => [
             '1323241'

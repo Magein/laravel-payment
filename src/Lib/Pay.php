@@ -21,17 +21,6 @@ abstract class Pay
      */
     public PayAccountData $payAccount;
 
-    /**
-     * 平台编号
-     * @return int|string
-     */
-    abstract function getPlatformId();
-
-    /**
-     *  平台名称
-     * @return int|string
-     */
-    abstract function getPlatformName();
 
     /**
      * @param \Magein\Payment\Lib\Data\PayData $payData
@@ -60,7 +49,6 @@ abstract class Pay
      */
     abstract function notifySuccess(): ?string;
 
-
     /**
      * Pay constructor.
      * @param string|int $key
@@ -72,6 +60,26 @@ abstract class Pay
         } else {
             $this->payAccount = new PayAccountData();
         }
+    }
+
+    /**
+     * 平台编号
+     * @return int|string
+     */
+    public function getPlatformId()
+    {
+        $class_name = class_basename($this);
+
+        return $class_name;
+    }
+
+    /**
+     *  平台名称
+     * @return int|string
+     */
+    public function getPlatformName()
+    {
+
     }
 
     /**

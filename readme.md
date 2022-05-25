@@ -2,6 +2,11 @@
 
 laravel支付扩展
 
+依赖扩展包:
+
+支付宝支付sdk包：composer require alipaysdk/easysdk:"~2.2"
+微信支付sdk包：composer require wechatpay/wechatpay:"~1.4"
+
 特点：
 
 1. 多平台

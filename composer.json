@@ -18,7 +18,9 @@
     "ext-json": "*",
     "laravel/framework": "~8.54",
     "magein/tools": "*@dev",
-    "magein/laravel-common": "*@dev"
+    "magein/laravel-common": "*@dev",
+    "alipaysdk/easysdk": "~2.2",
+    "wechatpay/wechatpay": "~1.4.5"
   },
   "autoload": {
     "psr-4": {
